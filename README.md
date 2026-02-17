@@ -26,12 +26,12 @@ ___
 ___
 <h3>4. 🧩 Audio & Levels</h3>
 
-<h4> 🎧 Audio</h4>
+<h4>5. 🎧 Audio</h4>
 
 * **Music:** Background music for the level.
 * **Sound effects**
 ___
-<h4>🏗️ Levels designed</h4>
+<h4>6. 🏗️ Levels designed</h4>
 
 * **Levels:** Levels designed with various assets.
 * **Final goal:** Learn the dangers and risks of the internet in your daily life.
