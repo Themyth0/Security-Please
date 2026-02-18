@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djbb1lsuhllbk"]
 
-[ext_resource type="Script" uid="uid://bmnrvtcwmf6oc" path="res://main_game.gd" id="1_l756w"]
+[ext_resource type="Script" uid="uid://bmnrvtcwmf6oc" path="res://Script/main_game.gd" id="1_l756w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3va"]
 
@@ -181,32 +181,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[center][font_size=22][b]🕵️ MANUAL DEL DETECTIVE DIGITAL[/b][/font_size][/center]
+text = "🕵️ MANUAL DEL DETECTIVE DIGITAL
 
-[color=#e74c3c][b]1. EL REMITENTE: No te fíes del nombre[/b][/color]
+1. EL REMITENTE: No te fíes del nombre
 Los estafadores pueden ponerse nombres como \"Banco Santander\" o \"Netflix\". 
-• [b]Fíjate en el dominio:[/b] Si el correo dice venir de Apple pero la dirección real es [i]soporte@seguridad-cloud.com[/i], es falso.
-• [b]Cuidado con los \"typos\":[/b] Revisa si dice [i]@mircosoft.com[/i] en lugar de [i]@microsoft.com[/i].
+• Fíjate en el dominio: Si el correo dice venir de Apple pero la dirección real es [i]soporte@seguridad-cloud.com[/i], es falso.
+• Cuidado con los \"typos\": Revisa si dice [i]@mircosoft.com[/i] en lugar de [i]@microsoft.com[/i].
 
-[color=#e67e22][b]2. EL TONO: Urgencia y Miedo[/b][/color]
+2. EL TONO: Urgencia y Miedo
 Si el mensaje te hace sentir pánico, ¡detente! 
-• [b]Amenazas:[/b] \"Tu cuenta será cerrada en 2 horas\".
-• [b]Premios falsos:[/b] \"¡Has ganado un iPhone! Reclámalo ya\".
-[i]Buscan que tu cerebro actúe por instinto y no por lógica.[/i]
+• Amenazas: \"Tu cuenta será cerrada en 2 horas\".
+• Premios falsos: \"¡Has ganado un iPhone! Reclámalo ya\".
+Buscan que tu cerebro actúe por instinto y no por lógica.
 
-[color=#3498db][b]3. ENLACES: El truco del cursor[/b][/color]
-[b]Nunca hagas clic a ciegas.[/b] 
-• [b]Pasa el ratón por encima:[/b] En este juego, si pones el cursor sobre un link, verás la URL real abajo. Si la web no coincide con la oficial, ¡huye!
-• [b]Acortadores:[/b] Desconfía de enlaces tipo [i]bit.ly[/i] o [i]t.co[/i] en correos oficiales.
+3. ENLACES: El truco del cursor
+Nunca hagas clic a ciegas.
+• Pasa el ratón por encima: En este juego, si pones el cursor sobre un link, verás la URL real abajo. Si la web no coincide con la oficial, ¡huye!
+• Acortadores: Desconfía de enlaces tipo bit.ly o t.co en correos oficiales.
 
-[color=#9b59b6][b]4. SALUDOS Y REDACCIÓN[/b][/color]
-• [b]Genéricos:[/b] \"Estimado cliente\" o \"Hola usuario\" son señales de alerta. Las empresas reales suelen saber tu nombre.
-• [b]Errores:[/b] Busca traducciones extrañas o faltas de ortografía.
+4. SALUDOS Y REDACCIÓN
+• Genéricos: \"Estimado cliente\" o \"Hola usuario\" son señales de alerta. Las empresas reales suelen saber tu nombre.
+• Errores: Busca traducciones extrañas o faltas de ortografía.
 
-[color=#2ecc71][b]5. ARCHIVOS ADJUNTOS[/b][/color]
-• [b]Extensiones raras:[/b] Cuidado con archivos [i].zip, .exe[/i], o facturas [i].pdf[/i] que no esperas.
+5. ARCHIVOS ADJUNTOS
+• Extensiones raras: Cuidado con archivos .zip, .exe, o facturas .pdf que no esperas.
 
-[center][b]REGLA DE ORO:[/b] Ninguna entidad oficial te pedirá jamás tu contraseña o PIN por correo.[/center]"
+REGLA DE ORO: Ninguna entidad oficial te pedirá jamás tu contraseña o PIN por correo."
 
 [node name="BtnCloseManual" type="Button" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual" unique_id=1104992291]
 layout_mode = 2
