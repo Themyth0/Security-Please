@@ -54,7 +54,7 @@ layout_mode = 2
 
 [node name="LabelPoints" type="Label" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=2019292868]
 layout_mode = 2
-text = "Puntos: 0"
+text = "Points: 0"
 
 [node name="Spacer" type="Control" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=1506732729]
 layout_mode = 2
@@ -72,7 +72,7 @@ layout_mode = 2
 
 [node name="MailSubject" type="Label" parent="MainLayout/Content/Header" unique_id=876044535]
 layout_mode = 2
-text = "Selecciona un correo..."
+text = "Select an Email..."
 
 [node name="EmailView" type="PanelContainer" parent="MainLayout/Content" unique_id=399733677]
 layout_mode = 2
@@ -181,32 +181,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "🕵️ MANUAL DEL DETECTIVE DIGITAL
+text = "🕵️ DIGITAL DETECTIVE MANUAL
 
-1. EL REMITENTE: No te fíes del nombre
-Los estafadores pueden ponerse nombres como \"Banco Santander\" o \"Netflix\". 
-• Fíjate en el dominio: Si el correo dice venir de Apple pero la dirección real es [i]soporte@seguridad-cloud.com[/i], es falso.
-• Cuidado con los \"typos\": Revisa si dice [i]@mircosoft.com[/i] en lugar de [i]@microsoft.com[/i].
+1. THE SENDER: Dont trust their names
+The scammers can have acount names like some bank entity or famous subscription servie such as \"Netflix\". 
+• Lookup the domain: If the mail claims to be from Apple, but the email addres is [i]soporte@seguridad-cloud.com[/i], its a false email.
+• Take special care on fin details and typo: Make sure the email is [i]@mircosoft.com[/i] instead of somethings like this [i]@microsoft.com[/i].
 
-2. EL TONO: Urgencia y Miedo
-Si el mensaje te hace sentir pánico, ¡detente! 
-• Amenazas: \"Tu cuenta será cerrada en 2 horas\".
-• Premios falsos: \"¡Has ganado un iPhone! Reclámalo ya\".
-Buscan que tu cerebro actúe por instinto y no por lógica.
+2. TONE: Alarming and and rushing
+If the message makes you nervous or frightened, ¡STOP! 
+• Threats: \"Your account will be suspended in 2 hours\".
+• False Prices: \"You just won the latest Iphone!! Click here to claim it\".
+They try to make you make the decisions on the rush of the rush of the moment, not by logical thinkig but by instinct or fear.
 
-3. ENLACES: El truco del cursor
-Nunca hagas clic a ciegas.
-• Pasa el ratón por encima: En este juego, si pones el cursor sobre un link, verás la URL real abajo. Si la web no coincide con la oficial, ¡huye!
-• Acortadores: Desconfía de enlaces tipo bit.ly o t.co en correos oficiales.
+3. LINKS: The cursor trick
+NEVER click a link without knowing what it leads to.
+• Hover the cursor over the link: In this game, if you hover the cursor over the link, you will see the real URL bellow. If the URL doesnt match the real one, ¡RUN!
+• LINK SHORTERS: do not ever trust domains like bit.ly or others shorters as such even if the site name matches perfectly.
 
-4. SALUDOS Y REDACCIÓN
-• Genéricos: \"Estimado cliente\" o \"Hola usuario\" son señales de alerta. Las empresas reales suelen saber tu nombre.
-• Errores: Busca traducciones extrañas o faltas de ortografía.
+4. GREETINGS AND REDACTIONS:
+• Generics: \"Stimate client\" or \"Hello user\" are signs of danger. Real corporations usually know your name/username.
+• Errors: lookup for extrange translations or gramatical errors.
 
-5. ARCHIVOS ADJUNTOS
-• Extensiones raras: Cuidado con archivos .zip, .exe, o facturas .pdf que no esperas.
+5. ATTACHED FILES
+• Strange extensions: Be carefull with .zip, .exe, or Taxe.pdf that you arent suposed to get or that you arent waiting for.
 
-REGLA DE ORO: Ninguna entidad oficial te pedirá jamás tu contraseña o PIN por correo."
+GOLDEN RULE: No real organization or company will ask you for personal data or passwords."
 
 [node name="BtnCloseManual" type="Button" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual" unique_id=1104992291]
 layout_mode = 2

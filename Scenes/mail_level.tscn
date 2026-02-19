@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://ccmiqqf14dmlc"]
 
-[ext_resource type="Script" uid="uid://mf1oe58h2xhb" path="res://Script/nivel_correos.gd" id="1_sc8w1"]
-
 [node name="mail_level" type="Control" unique_id=1301589776]
 layout_mode = 3
 anchors_preset = 15
@@ -9,7 +7,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sc8w1")
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="ColorRect" parent="." unique_id=1528018332]
@@ -95,7 +92,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 643.0
-text = "Regla 1: Desconfía de dominios con números"
+text = "Rule number 1: Do not trust numbered domains"
 
 [node name="CloseManualBtn" type="Button" parent="ManualPanel" unique_id=1238896439]
 layout_mode = 0
