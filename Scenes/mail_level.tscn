@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://ccmiqqf14dmlc"]
+
+[ext_resource type="Script" uid="uid://mf1oe58h2xhb" path="res://Script/nivel_correos.gd" id="1_sc8w1"]
+
+[node name="mail_level" type="Control" unique_id=1301589776]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sc8w1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=1528018332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MainSplit" type="HBoxContainer" parent="." unique_id=1743109319]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InboxContainer" type="PanelContainer" parent="MainSplit" unique_id=1763399029]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmailList" type="VBoxContainer" parent="MainSplit/InboxContainer" unique_id=1342451679]
+layout_mode = 2
+
+[node name="EmailViewer" type="PanelContainer" parent="MainSplit" unique_id=1186051079]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="EmailContent" type="VBoxContainer" parent="MainSplit/EmailViewer" unique_id=1367194622]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Sender" type="Label" parent="MainSplit/EmailViewer/EmailContent" unique_id=948916971]
+layout_mode = 2
+
+[node name="Subject" type="Label" parent="MainSplit/EmailViewer/EmailContent" unique_id=1691872089]
+layout_mode = 2
+
+[node name="separator" type="HSeparator" parent="MainSplit/EmailViewer/EmailContent" unique_id=609757573]
+layout_mode = 2
+
+[node name="BodyText" type="RichTextLabel" parent="MainSplit/EmailViewer/EmailContent" unique_id=723066011]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonZone" type="HBoxContainer" parent="MainSplit/EmailViewer/EmailContent" unique_id=724269194]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="LegitBtn" type="Button" parent="MainSplit/EmailViewer/EmailContent/ButtonZone" unique_id=2020742680]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Approved"
+
+[node name="PhishingBtn" type="Button" parent="MainSplit/EmailViewer/EmailContent/ButtonZone" unique_id=995445808]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Denied
+"
+
+[node name="ManualBtn" type="Button" parent="." unique_id=1961294648]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 615.0
+offset_right = 114.0
+offset_bottom = 646.0
+text = "VER MANUAL"
+
+[node name="ManualPanel" type="Panel" parent="." unique_id=1053676400]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ManualContent" type="RichTextLabel" parent="ManualPanel" unique_id=983374075]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 643.0
+text = "Regla 1: Desconfía de dominios con números"
+
+[node name="CloseManualBtn" type="Button" parent="ManualPanel" unique_id=1238896439]
+layout_mode = 0
+offset_left = 990.0
+offset_top = 561.0
+offset_right = 1150.0
+offset_bottom = 646.0
+text = "CERRAR"
+
+[connection signal="pressed" from="MainSplit/EmailViewer/EmailContent/ButtonZone/LegitBtn" to="." method="_on_btn_legitimo_pressed"]
+[connection signal="pressed" from="MainSplit/EmailViewer/EmailContent/ButtonZone/PhishingBtn" to="." method="_on_btn_phishing_pressed"]
+[connection signal="pressed" from="ManualBtn" to="." method="_on_btn_manual_pressed"]
+[connection signal="pressed" from="ManualPanel/CloseManualBtn" to="." method="_on_btn_cerrar_manual_pressed"]

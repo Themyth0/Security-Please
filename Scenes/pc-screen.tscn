@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://5h7uh3mdny16"]
+
+[ext_resource type="Texture2D" uid="uid://b42c7octxc7g2" path="res://Assets/vecteezy_digital-device-clipart-design-illustration_9394185.png" id="1_35yfe"]
+
+[node name="pc-screen" type="Node2D" unique_id=1715501201]
+
+[node name="PC-Screen" type="Sprite2D" parent="." unique_id=371605923]
+z_index = -1
+position = Vector2(578.43756, 421.49994)
+scale = Vector2(0.1769817, 0.15543559)
+texture = ExtResource("1_35yfe")

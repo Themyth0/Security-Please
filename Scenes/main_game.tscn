@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://djbb1lsuhllbk"]
+
+[ext_resource type="Script" uid="uid://bmnrvtcwmf6oc" path="res://Script/main_game.gd" id="1_l756w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3va"]
+
+[node name="MainGame" type="Control" unique_id=551711078]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l756w")
+
+[node name="Background" type="ColorRect" parent="." unique_id=909850]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1.4439225e-06, 0.28489935, 0.3925011, 1)
+
+[node name="MainLayout" type="HSplitContainer" parent="." unique_id=1313082259]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sidebar" type="PanelContainer" parent="MainLayout" unique_id=912424475]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="MarginSidebar" type="MarginContainer" parent="MainLayout/Sidebar" unique_id=321230135]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxSidebar" type="VBoxContainer" parent="MainLayout/Sidebar/MarginSidebar" unique_id=746266563]
+layout_mode = 2
+
+[node name="Logo" type="Label" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=618272092]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.21568628, 0, 1)
+text = "G-Mail Detective"
+
+[node name="Separator" type="HSeparator" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=745691643]
+layout_mode = 2
+
+[node name="LabelPoints" type="Label" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=2019292868]
+layout_mode = 2
+text = "Puntos: 0"
+
+[node name="Spacer" type="Control" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=1506732729]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BtnManual" type="Button" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=1033899807]
+layout_mode = 2
+text = "Open Guide"
+
+[node name="Content" type="VBoxContainer" parent="MainLayout" unique_id=336255982]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="MainLayout/Content" unique_id=1452783265]
+layout_mode = 2
+
+[node name="MailSubject" type="Label" parent="MainLayout/Content/Header" unique_id=876044535]
+layout_mode = 2
+text = "Selecciona un correo..."
+
+[node name="EmailView" type="PanelContainer" parent="MainLayout/Content" unique_id=399733677]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginEmail" type="MarginContainer" parent="MainLayout/Content/EmailView" unique_id=1222694324]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainLayout/Content/EmailView/MarginEmail" unique_id=769322604]
+layout_mode = 2
+
+[node name="VBoxEmail" type="VBoxContainer" parent="MainLayout/Content/EmailView/MarginEmail/ScrollContainer" unique_id=1759613601]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EmailBody" type="RichTextLabel" parent="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail" unique_id=1801167297]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="URLToolTip" type="Label" parent="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail" unique_id=605773679]
+visible = false
+layout_mode = 2
+text = "URL: .."
+
+[node name="ActionsFooter" type="PanelContainer" parent="MainLayout/Content" unique_id=1307591682]
+layout_mode = 2
+
+[node name="HBoxActions" type="HBoxContainer" parent="MainLayout/Content/ActionsFooter" unique_id=1488361519]
+layout_mode = 2
+
+[node name="GridChecks" type="GridContainer" parent="MainLayout/Content/ActionsFooter/HBoxActions" unique_id=93690250]
+layout_mode = 2
+columns = 2
+
+[node name="CheckSender" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions/GridChecks" unique_id=488091283]
+layout_mode = 2
+text = "Suspicious sender"
+
+[node name="CheckTone" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions/GridChecks" unique_id=932730444]
+layout_mode = 2
+text = "Urgency/Threat"
+
+[node name="CheckURL" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions/GridChecks" unique_id=1840023041]
+layout_mode = 2
+text = "Fake link"
+
+[node name="CheckAttachment" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions/GridChecks" unique_id=1017165514]
+layout_mode = 2
+text = "Strange file"
+
+[node name="CheckIsSafe" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions" unique_id=1432957173]
+layout_mode = 2
+text = "✅ IT'S SAFE"
+
+[node name="BtnValidate" type="Button" parent="MainLayout/Content/ActionsFooter/HBoxActions" unique_id=1633500226]
+layout_mode = 2
+text = "Send"
+
+[node name="ManualOverlay" type="ColorRect" parent="." unique_id=428964572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7058824)
+metadata/_edit_use_anchors_ = true
+
+[node name="ManualPanel" type="PanelContainer" parent="ManualOverlay" unique_id=840547591]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pu3va")
+
+[node name="MarginContainer" type="MarginContainer" parent="ManualOverlay/ManualPanel" unique_id=2052881707]
+layout_mode = 2
+
+[node name="VBoxManual" type="VBoxContainer" parent="ManualOverlay/ManualPanel/MarginContainer" unique_id=1467696198]
+layout_mode = 2
+
+[node name="ManualTitle" type="Label" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual" unique_id=426060023]
+layout_mode = 2
+text = "Manual"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual" unique_id=1002638025]
+layout_mode = 2
+
+[node name="GuideText" type="RichTextLabel" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual/ScrollContainer" unique_id=392632507]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "🕵️ MANUAL DEL DETECTIVE DIGITAL
+
+1. EL REMITENTE: No te fíes del nombre
+Los estafadores pueden ponerse nombres como \"Banco Santander\" o \"Netflix\". 
+• Fíjate en el dominio: Si el correo dice venir de Apple pero la dirección real es [i]soporte@seguridad-cloud.com[/i], es falso.
+• Cuidado con los \"typos\": Revisa si dice [i]@mircosoft.com[/i] en lugar de [i]@microsoft.com[/i].
+
+2. EL TONO: Urgencia y Miedo
+Si el mensaje te hace sentir pánico, ¡detente! 
+• Amenazas: \"Tu cuenta será cerrada en 2 horas\".
+• Premios falsos: \"¡Has ganado un iPhone! Reclámalo ya\".
+Buscan que tu cerebro actúe por instinto y no por lógica.
+
+3. ENLACES: El truco del cursor
+Nunca hagas clic a ciegas.
+• Pasa el ratón por encima: En este juego, si pones el cursor sobre un link, verás la URL real abajo. Si la web no coincide con la oficial, ¡huye!
+• Acortadores: Desconfía de enlaces tipo bit.ly o t.co en correos oficiales.
+
+4. SALUDOS Y REDACCIÓN
+• Genéricos: \"Estimado cliente\" o \"Hola usuario\" son señales de alerta. Las empresas reales suelen saber tu nombre.
+• Errores: Busca traducciones extrañas o faltas de ortografía.
+
+5. ARCHIVOS ADJUNTOS
+• Extensiones raras: Cuidado con archivos .zip, .exe, o facturas .pdf que no esperas.
+
+REGLA DE ORO: Ninguna entidad oficial te pedirá jamás tu contraseña o PIN por correo."
+
+[node name="BtnCloseManual" type="Button" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual" unique_id=1104992291]
+layout_mode = 2
+
+[node name="FeedbackPopUp" type="AcceptDialog" parent="." unique_id=105388703]
+
+[connection signal="pressed" from="MainLayout/Sidebar/MarginSidebar/VBoxSidebar/BtnManual" to="." method="_on_btn_manual_pressed"]
+[connection signal="meta_hover_ended" from="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody" to="." method="_on_email_body_meta_hover_ended"]
+[connection signal="meta_hover_started" from="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody" to="." method="_on_email_body_meta_hover_started"]
+[connection signal="pressed" from="MainLayout/Content/ActionsFooter/HBoxActions/BtnValidate" to="." method="_on_btn_validate_pressed"]
+[connection signal="pressed" from="ManualOverlay/ManualPanel/MarginContainer/VBoxManual/BtnCloseManual" to="." method="_on_btn_close_manual_pressed"]
+[connection signal="confirmed" from="FeedbackPopUp" to="." method="_on_feedback_pop_up_confirmed"]
