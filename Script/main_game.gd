@@ -5,52 +5,52 @@ var current_email_idx = 0
 
 var emails = [
 	{
-		"subject": "⚠️ SEGURIDAD: Acceso no autorizado",
-		"sender": "seguridad@soporte-netflix-login.com",
-		"body": "Estimado cliente,\n\nHemos detectado un inicio de sesión desde Rusia. Si no has sido tú, haz clic en el siguiente enlace para asegurar tu cuenta inmediatamente:\n\n[url=http://login-netflix-verificar.ru/acc]VERIFICAR CUENTA AHORA[/url]\n\nDe lo contrario, su cuenta será suspendida en 24 horas.",
+		"subject": "⚠️ SECURITY: Access denied",
+		"sender": "security@support-netflix-login.com",
+		"body": "Dear client,\n\nWe've detected a login from Russia. If that was'nt you, click the following link to secure your acount:\n\n[url=http://login-netflix-verificar.ru/acc]VERIFICAR CUENTA AHORA[/url]\n\nDe lo contrario, su cuenta será suspendida en 24 horas.",
 		"errors": ["sender", "tone", "url", "greeting"],
 		"is_safe": false,
-		"explanation": "El remitente no es @netflix.com, usa un tono de amenaza, un saludo genérico y el link va a un dominio .ru (Rusia)."
+		"explanation": "The sender is'nt @netflix.com, it uses a threatening tone, a generic greating and the links domain is .ru (Russia)."
 	},
 	{
-		"subject": "Tu factura de Amazon.es",
-		"sender": "facturacion@amazon.es",
-		"body": "Hola Juan,\n\nAdjuntamos la factura de tu pedido realizado ayer. Gracias por comprar con nosotros.\n\n[url=https://amazon.es/mis-pedidos]Ver mi pedido[/url]",
+		"subject": "Your amazon.es bill",
+		"sender": "bills@amazon.es",
+		"body": "Hello Juan,\n\nWe attached the bill from your purcharse from yesterdays. Thanks for shopping with us.\n\n[url=https://amazon.es/mis-pedidos]Ver mi pedido[/url]",
 		"errors": [],
 		"is_safe": true,
-		"explanation": "Este correo es legítimo. El dominio es correcto, te llama por tu nombre y el enlace apunta a la web oficial."
+		"explanation": "This email is legit. The domain is correct, It calls you by your name and the link points to the official web."
 	},
 	{
-		"subject": "¡HAS GANADO! 🎁 RECLAMA TU PREMIO",
-		"sender": "premios@sorteos-internacionales.net",
-		"body": "¡Felicidades usuario!\n\nHas sido seleccionado para recibir un iPhone 15 Pro Max totalmente gratis. Solo tienes que descargar el formulario de envío y rellenarlo:\n\n[url=descarga]formulario_premio.zip.exe[/url]",
+		"subject": "¡YOU'VE WON! 🎁 CLAIM YOUR PRICE",
+		"sender": "price@sorteos-internacionales.net",
+		"body": "¡Congratulations user!\n\nYou've selected to win a Iphone 15 pro max complitely for free. You only have to download de paper and complete it with your info:\n\n[url=descarga]formulario_premio.zip.exe[/url]",
 		"errors": ["tone", "greeting", "attachment"],
 		"is_safe": false,
-		"explanation": "Nadie regala iPhones. El archivo tiene doble extensión (.zip.exe), lo cual es un virus clásico."
+		"explanation": "Nobody gifts iPhones for free. The file has two extensions (.zip.exe), that is a classic virus technique."
 	},
 	{
-		"subject": "Actualización de cuenta Microsoft",
+		"subject": "Microsoft account update",
 		"sender": "no-reply@mircosoft.com",
-		"body": "Tu suscripción de Microsoft 365 ha caducado. Por favor, actualiza tus datos de pago en el siguiente portal:\n\n[url=http://mircosoft-pagos.com]Ir al portal de pagos[/url]",
+		"body": "Your Microsoft 365 subscription has ended. Please, update your payment info on the following formulary\n\n[url=http://mircosoft-pagos.com]Go to payment formulary[/url]",
 		"errors": ["sender", "url"],
 		"is_safe": false,
-		"explanation": "Es un ataque de 'typosquatting'. Han escrito 'Mircosoft' (con R antes de la C) para engañar tu vista."
+		"explanation": "This is a typosquatting attack. they wrote 'Mircosoft' (shifting the C and R) to fool you."
 	},
 	{
-		"subject": "Cita previa Seguridad Social",
+		"subject": "Medical date",
 		"sender": "avisos@seg-social.es",
-		"body": "Hola,\n\nLe recordamos que tiene una cita programada para mañana a las 10:00 AM en su oficina más cercana. Si desea modificarla, acceda a la sede electrónica.",
+		"body": "Hello,\n\nwe like to remind you of your medical date that is arrange for tomorrow at 10:00 AM in oyur closest office. If you would like to change it, access to the official web.",
 		"errors": [],
 		"is_safe": true,
-		"explanation": "Correo informativo real. No pide datos sensibles, no tiene enlaces externos raros y el dominio es el oficial del gobierno."
+		"explanation": "Real informative email. Does'nt ask you for sensitive information, does'nt have strange links and the domain is the official goverment domain."
 	},
 	{
-		"subject": "BLOQUEO DE TARJETA",
+		"subject": "CREDICTCARD BLOCKED",
 		"sender": "alertas@santander-seguro-web.com",
-		"body": "URGENTE: Su tarjeta ha sido bloqueada por seguridad. Para reactivarla, introduzca su PIN y clave de firma en este enlace:\n\n[url=http://bit.ly/seguridad-banco]DESBLOQUEAR TARJETA[/url]",
+		"body": "URGENT: Your carc has been blocked for security ressons. In order to reactivate it, insert your PIN and digital sign in this link:\n\n[url=http://bit.ly/seguridad-banco]Reactivate Card[/url]",
 		"errors": ["sender", "tone", "url"],
 		"is_safe": false,
-		"explanation": "Los bancos nunca piden el PIN por email ni usan acortadores de enlaces como bit.ly."
+		"explanation": "Banks never ask for yor PIN by email and does'nt use link shorters such as bit.ly."
 	}
 ]
 
