@@ -12,6 +12,15 @@
 | **⚙️ Engine** | Godot Engine |
 | **📝 Language** | GDScript |
 |**👨‍💻Creators**|Tomi, Marta, David Pacheco|
+<a href="https://github.com/tomber05" >
+<img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
+</a>
+<a href="https://github.com/Vorazius" >
+<img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
+</a>
+<a href="https://github.com/Themyth0" >
+<img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
+</a>
 ___
 <h3>2. 📖 Description</h3>
 
