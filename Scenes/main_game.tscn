@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bmnrvtcwmf6oc" path="res://Script/main_game.gd" id="1_l756w"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3va"]
-
 [node name="MainGame" type="Control" unique_id=551711078]
 layout_mode = 3
 anchors_preset = 15
@@ -137,85 +135,54 @@ text = "✅ IT'S SAFE"
 layout_mode = 2
 text = "Send"
 
-[node name="ManualOverlay" type="ColorRect" parent="." unique_id=428964572]
-layout_mode = 1
+[node name="FeedbackPopUp" type="AcceptDialog" parent="." unique_id=105388703]
+
+[node name="ManualPopupE" type="Window" parent="." unique_id=407204680]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(400, 400)
+visible = false
+
+[node name="ManualText" type="RichTextLabel" parent="ManualPopupE" unique_id=874761138]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.7058824)
-metadata/_edit_use_anchors_ = true
-
-[node name="ManualPanel" type="PanelContainer" parent="ManualOverlay" unique_id=840547591]
-custom_minimum_size = Vector2(600, 500)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pu3va")
-
-[node name="MarginContainer" type="MarginContainer" parent="ManualOverlay/ManualPanel" unique_id=2052881707]
-layout_mode = 2
-
-[node name="VBoxManual" type="VBoxContainer" parent="ManualOverlay/ManualPanel/MarginContainer" unique_id=1467696198]
-layout_mode = 2
-
-[node name="ManualTitle" type="Label" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual" unique_id=426060023]
-layout_mode = 2
-text = "Manual"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual" unique_id=1002638025]
-layout_mode = 2
-
-[node name="GuideText" type="RichTextLabel" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual/ScrollContainer" unique_id=392632507]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 bbcode_enabled = true
-text = "🕵️ DIGITAL DETECTIVE MANUAL
+text = "📧 Essential Email Security Guide
+Email is the #1 way hackers try to get into your digital life. Use these simple rules to stay safe.
 
-1. THE SENDER: Dont trust their names
-The scammers can have acount names like some bank entity or famous subscription servie such as \"Netflix\". 
-• Lookup the domain: If the mail claims to be from Apple, but the email addres is [i]soporte@seguridad-cloud.com[/i], its a false email.
-• Take special care on fin details and typo: Make sure the email is [i]@mircosoft.com[/i] instead of somethings like this [i]@microsoft.com[/i].
+1. Spot the \"Phishing\" (The Red Flags)
+Phishing is when a hacker pretends to be someone you trust (like your bank or Netflix) to steal your password.
 
-2. TONE: Alarming and and rushing
-If the message makes you nervous or frightened, ¡STOP! 
-• Threats: \"Your account will be suspended in 2 hours\".
-• False Prices: \"You just won the latest Iphone!! Click here to claim it\".
-They try to make you make the decisions on the rush of the rush of the moment, not by logical thinkig but by instinct or fear.
+Sense of Urgency: If the email says \"Your account will be deleted in 2 hours!\" or \"Action Required NOW!\", it’s likely a scam.
 
-3. LINKS: The cursor trick
-NEVER click a link without knowing what it leads to.
-• Hover the cursor over the link: In this game, if you hover the cursor over the link, you will see the real URL bellow. If the URL doesnt match the real one, ¡RUN!
-• LINK SHORTERS: do not ever trust domains like bit.ly or others shorters as such even if the site name matches perfectly.
+Check the Sender: Look closely at the email address. support@netflix.com is real; support@net-flix-login.xyz is a fake.
 
-4. GREETINGS AND REDACTIONS:
-• Generics: \"Stimate client\" or \"Hello user\" are signs of danger. Real corporations usually know your name/username.
-• Errors: lookup for extrange translations or gramatical errors.
+Bad Grammar: Professional companies usually don't have messy spelling mistakes.
 
-5. ATTACHED FILES
-• Strange extensions: Be carefull with .zip, .exe, or Taxe.pdf that you arent suposed to get or that you arent waiting for.
+2. The \"Hover\" Trick
+Before clicking any link in an email, hover your mouse cursor over it (without clicking).
 
-GOLDEN RULE: No real organization or company will ask you for personal data or passwords."
+A small box will appear showing you the real destination.
 
-[node name="BtnCloseManual" type="Button" parent="ManualOverlay/ManualPanel/MarginContainer/VBoxManual" unique_id=1104992291]
-layout_mode = 2
+If the link says \"Click here to Login\" but the hover box shows a weird website address, don't click it.
 
-[node name="FeedbackPopUp" type="AcceptDialog" parent="." unique_id=105388703]
+3. Attachments: Handle with Care
+Never download an attachment (PDF, Word, or .zip) unless you were specifically expecting it.
+
+Hackers hide viruses in files. Even if it looks like an \"Invoice,\" if you didn't buy anything, delete it immediately.
+
+4. Lock the Front Door
+Your email password is the key to your whole life because it can reset passwords for other sites.
+
+Use MFA (Multi-Factor Authentication): This is the most important step. It sends a code to your phone when you log in. Even if a hacker steals your password, they can't get in without that code.
+
+Unique Passwords: Never use the same password for your email that you use for social media or games."
 
 [connection signal="pressed" from="MainLayout/Sidebar/MarginSidebar/VBoxSidebar/BtnManual" to="." method="_on_btn_manual_pressed"]
 [connection signal="meta_hover_ended" from="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody" to="." method="_on_email_body_meta_hover_ended"]
 [connection signal="meta_hover_started" from="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody" to="." method="_on_email_body_meta_hover_started"]
 [connection signal="pressed" from="MainLayout/Content/ActionsFooter/HBoxActions/BtnValidate" to="." method="_on_btn_validate_pressed"]
-[connection signal="pressed" from="ManualOverlay/ManualPanel/MarginContainer/VBoxManual/BtnCloseManual" to="." method="_on_btn_close_manual_pressed"]
 [connection signal="confirmed" from="FeedbackPopUp" to="." method="_on_feedback_pop_up_confirmed"]

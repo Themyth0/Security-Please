@@ -1,5 +1,5 @@
 extends Control
-
+#Variables
 var points = 0
 var current_email_idx = 0
 
@@ -59,7 +59,7 @@ var emails = [
 @onready var text_email = $MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody
 @onready var label_url_tip = $MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/URLToolTip
 @onready var label_points = $MainLayout/Sidebar/MarginSidebar/VBoxSidebar/LabelPoints
-@onready var manual_overlay = $ManualOverlay
+@onready var manual_popupE = $ManualPopupE
 @onready var feedback_popup = $FeedbackPopUp
 
 #checkbox
@@ -71,7 +71,7 @@ var emails = [
 
 func _ready():
 	label_url_tip.hide()
-	manual_overlay.hide()
+	manual_popupE.hide()
 	label_points.text = "Points: 0"
 	update_email_ui()
 
@@ -136,10 +136,10 @@ func finish_game():
 
 #UI functions
 func _on_btn_manual_pressed():
-	manual_overlay.show()
+	manual_popupE.show()
 
 func _on_btn_close_manual_pressed():
-	manual_overlay.hide()
+	manual_popupE.hide()
 
 func _on_email_body_meta_hover_started(meta):
 	label_url_tip.text = "🔗 REAL URL: " + str(meta)
