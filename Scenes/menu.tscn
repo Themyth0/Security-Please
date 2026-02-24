@@ -81,7 +81,6 @@ texture = ExtResource("2_jsrd8")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1708417101]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
