@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://doiasnbwyue7p"]
 
 [ext_resource type="Script" uid="uid://oik0tcn4gt4q" path="res://Script/main_gam.gd" id="1_dpqbi"]
+[ext_resource type="AudioStream" uid="uid://bcnrcj81nntwa" path="res://Music/Double Click Mouse Sfx.wav" id="2_qgqkm"]
+[ext_resource type="AudioStream" uid="uid://y3xopdqsxi6c" path="res://Music/Win sound.wav" id="3_gm3qo"]
+[ext_resource type="AudioStream" uid="uid://d4hghnooplsxh" path="res://Music/error.ogg" id="4_m7qrc"]
 
 [node name="main_gam" type="Control" unique_id=1548931786]
 layout_mode = 3
@@ -149,6 +152,13 @@ text = "Send"
 [node name="FeedbackPopup" type="AcceptDialog" parent="." unique_id=975523799]
 oversampling_override = 1.0
 
+[node name="BtnCloseManual" type="Button" parent="." unique_id=1086526426]
+layout_mode = 0
+offset_top = 620.0
+offset_right = 99.0
+offset_bottom = 646.0
+text = "Close Manual"
+
 [node name="ManualPopup" type="Window" parent="." unique_id=77942657]
 oversampling_override = 1.0
 position = Vector2i(0, 36)
@@ -185,8 +195,18 @@ Check for low-quality images, spelling mistakes, or weird layouts that don't loo
 - If the site is perfect, check only [b]\"This website is Safe\"[/b].
 - Press \"Analyze\" to submit."
 
+[node name="SfxClick" type="AudioStreamPlayer" parent="." unique_id=589042447]
+stream = ExtResource("2_qgqkm")
+
+[node name="SfxSuccess" type="AudioStreamPlayer" parent="." unique_id=2056054297]
+stream = ExtResource("3_gm3qo")
+
+[node name="SfxError" type="AudioStreamPlayer" parent="." unique_id=1279661078]
+stream = ExtResource("4_m7qrc")
+
 [connection signal="pressed" from="Header/ManualButton" to="." method="_on_manual_button_pressed"]
 [connection signal="pressed" from="BrowserArea/FakePopup/FakePopupButton" to="." method="_on_fake_popup_clicked"]
 [connection signal="toggled" from="InvestigationPanel/CheckboxContainer/Chk_Safe" to="." method="_on_safe_toggled"]
 [connection signal="pressed" from="InvestigationPanel/SubmitButton" to="." method="_on_submit_pressed"]
 [connection signal="confirmed" from="FeedbackPopup" to="." method="next_level"]
+[connection signal="pressed" from="BtnCloseManual" to="." method="_on_btn_close_manual_pressed"]

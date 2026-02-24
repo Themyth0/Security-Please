@@ -1,5 +1,7 @@
 extends Control
-#Variables
+
+@export var next_scene_path: String = "res://Scenes/main_gam.tscn"
+
 var points = 0
 var current_email_idx = 0
 
@@ -7,7 +9,7 @@ var emails = [
 	{
 		"subject": "⚠️ SECURITY: Access denied",
 		"sender": "security@support-netflix-login.com",
-		"body": "Dear client,\n\nWe've detected a login from Russia. If that was'nt you, click the following link to secure your acount:\n\n[url=http://login-netflix-verificar.ru/acc]VERIFICAR CUENTA AHORA[/url]\n\nDe lo contrario, su cuenta será suspendida en 24 horas.",
+		"body": "Dear client,\n\nWe've detected a login from Russia. If that was'nt you, click the following link to secure your acount:\n\n[url=http://login-netflix-check.ru/acc]VERIFY ACCOUNT NOW[/url]\n\nOtherwise, your account will be suspended within 24 hours.",
 		"errors": ["sender", "tone", "url", "greeting"],
 		"is_safe": false,
 		"explanation": "The sender is'nt @netflix.com, it uses a threatening tone, a generic greating and the links domain is .ru (Russia)."
@@ -54,7 +56,7 @@ var emails = [
 	}
 ]
 
-#Node
+# NODES 
 @onready var label_subject = $MainLayout/Content/Header/MailSubject
 @onready var text_email = $MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody
 @onready var label_url_tip = $MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/URLToolTip
@@ -62,12 +64,18 @@ var emails = [
 @onready var manual_popupE = $ManualPopupE
 @onready var feedback_popup = $FeedbackPopUp
 
-#checkbox
+# Sounds
+@onready var sfx_click = $SfxClick
+@onready var sfx_success = $SfxSuccess
+@onready var sfx_error = $SfxError
+
+# Checkboxes
 @onready var check_sender = $MainLayout/Content/ActionsFooter/HBoxActions/GridChecks/CheckSender
 @onready var check_tone = $MainLayout/Content/ActionsFooter/HBoxActions/GridChecks/CheckTone
 @onready var check_url = $MainLayout/Content/ActionsFooter/HBoxActions/GridChecks/CheckURL
 @onready var check_attachment = $MainLayout/Content/ActionsFooter/HBoxActions/GridChecks/CheckAttachment
 @onready var check_is_safe = $MainLayout/Content/ActionsFooter/HBoxActions/CheckIsSafe
+
 
 func _ready():
 	label_url_tip.hide()
@@ -79,12 +87,12 @@ func update_email_ui():
 	var data = emails[current_email_idx]
 	label_subject.text = "Subject: " + data.subject
 	text_email.text = "FROM: " + data.sender + "\n\n" + data.body
+	
 	check_sender.button_pressed = false
 	check_tone.button_pressed = false
 	check_url.button_pressed = false
 	check_attachment.button_pressed = false
 	check_is_safe.button_pressed = false
-
 
 func _on_btn_validate_pressed():
 	var data = emails[current_email_idx]
@@ -106,12 +114,15 @@ func _on_btn_validate_pressed():
 		
 		if not missing_errors:
 			points += 5
+			sfx_success.play() 
 			result_message = "✅ EXCELLENT!\nPerfect identification.\n\n"
 		else:
 			points += 2
+			sfx_success.play() 
 			result_message = "⚠️ GOOD, BUT...\nYou got the verdict right, but missed some red flags.\n\n"
 	else:
 		points -= 3
+		sfx_error.play() 
 		result_message = "❌ ERROR!\nYou failed the security verdict.\n\n"
 
 	show_feedback(result_message + "ANALYSIS:\n" + data.explanation)
@@ -121,24 +132,30 @@ func show_feedback(text):
 	feedback_popup.popup_centered()
 	label_points.text = "Points: " + str(points)
 
-
 func _on_feedback_pop_up_confirmed():
 	current_email_idx += 1
 	if current_email_idx < emails.size():
 		update_email_ui()
 	else:
-		finish_game()
+		evaluate_final_score()
 
-func finish_game():
-	label_subject.text = "GAME OVER"
-	text_email.text = "[center][b]Inbox Cleaned![/b]\n\nFinal Score: " + str(points) + "[/center]"
-	$MainLayout/Content/ActionsFooter.hide()
+func evaluate_final_score():
+	if points >= 15:
+		print("Final score: ", points, ". Victory!")
+		if ResourceLoader.exists(next_scene_path):
+			get_tree().change_scene_to_file(next_scene_path)
+		else:
+			print("Error: Scene not found at ", next_scene_path)
+	else:
+		print("Final score: ", points, ". Insufficient, restarting...")
+		get_tree().reload_current_scene()
 
-#UI functions
+# UI Functions
+
 func _on_btn_manual_pressed():
 	manual_popupE.show()
 
-func _on_btn_close_manual_pressed():
+func _on_btn_close_manuale_pressed():
 	manual_popupE.hide()
 
 func _on_email_body_meta_hover_started(meta):
@@ -147,3 +164,9 @@ func _on_email_body_meta_hover_started(meta):
 
 func _on_email_body_meta_hover_ended(_meta):
 	label_url_tip.hide()
+	
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if sfx_click:
+				sfx_click.play()
