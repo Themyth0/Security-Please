@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cfym2lmn5s4qh"]
 
 [ext_resource type="Script" uid="uid://dgyr80rcbov23" path="res://Script/menu.gd" id="1_wwsa2"]
-[ext_resource type="Texture2D" uid="uid://cc8n4me8pyllw" path="res://border 3.png" id="2_jsrd8"]
+[ext_resource type="Texture2D" uid="uid://cc8n4me8pyllw" path="res://Assets/border 3.png" id="2_jsrd8"]
 [ext_resource type="FontFile" uid="uid://bnadxfin8kpj1" path="res://Fonts/Fonts/Kenney Mini Square.ttf" id="3_wbdvm"]
 [ext_resource type="FontFile" uid="uid://b2yg12xikagb0" path="res://Fonts/Fonts/Kenney Rocket.ttf" id="4_q3rjx"]
 [ext_resource type="AudioStream" uid="uid://cv25bu51apuws" path="res://Music/Past, Present, Future.ogg" id="5_6swd7"]
+[ext_resource type="Script" uid="uid://b3wj3ppuh56qm" path="res://Script/audio_control.gd" id="6_jsrd8"]
+[ext_resource type="Script" uid="uid://bfcynq6k0a28g" path="res://Script/fullscreen.gd" id="7_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://db8fpt55nduhj" path="res://Assets/Icons/Speaker-0.png" id="8_q3rjx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
 bg_color = Color(0.3351593, 0.62088716, 0.74609375, 1)
@@ -26,6 +29,26 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbdvm"]
+bg_color = Color(0.07058824, 0.20392157, 0.3372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.5411765, 0.7764706, 0.78431374, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wbdvm"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_q3rjx"]
+color = Color(0.5634308, 0.82421875, 0.78754544, 1)
+thickness = 4
 
 [node name="Menu" type="Control" unique_id=1699233790]
 layout_mode = 3
@@ -128,6 +151,7 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=886231441]
 stream = ExtResource("5_6swd7")
 autoplay = true
+bus = &"Music"
 
 [node name="Options" type="Panel" parent="." unique_id=1702486725]
 layout_mode = 1
@@ -142,6 +166,7 @@ offset_right = 236.0
 offset_bottom = 217.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbdvm")
 
 [node name="Label" type="Label" parent="Options" unique_id=203888662]
 layout_mode = 1
@@ -175,7 +200,52 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mae5d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4hy44")
 text = "Back"
 
+[node name="AudioControl" type="HSlider" parent="Options" unique_id=10169954]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 86.0
+offset_right = 187.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_wbdvm")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_q3rjx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_q3rjx")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("6_jsrd8")
+audio_bus_name = "Music"
+
+[node name="fullscreen" type="CheckButton" parent="Options" unique_id=783297120]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 145.0
+offset_right = 200.0
+offset_bottom = 201.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_wbdvm")
+theme_override_font_sizes/font_size = 20
+text = "Fullscreen"
+script = ExtResource("7_wbdvm")
+
+[node name="TextureRect" type="TextureRect" parent="Options" unique_id=1243539713]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 86.0
+offset_right = 79.0
+offset_bottom = 126.0
+texture = ExtResource("8_q3rjx")
+expand_mode = 1
+
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Options/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Options/fullscreen" to="Options/fullscreen" method="_on_toggled"]
