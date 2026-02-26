@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bmnrvtcwmf6oc" path="res://Script/main_game.gd" id="1_l756w"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l756w"]
+bg_color = Color(0, 0.28627452, 0.39215687, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="MainGame" type="Control" unique_id=551711078]
 layout_mode = 3
 anchors_preset = 15
@@ -60,6 +67,7 @@ size_flags_vertical = 3
 
 [node name="BtnManual" type="Button" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=1033899807]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_l756w")
 text = "Open Guide"
 
 [node name="Content" type="VBoxContainer" parent="MainLayout" unique_id=336255982]
