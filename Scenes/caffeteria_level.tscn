@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://b06cx1g40h3cj" path="res://Assets/caffee-en-café-mesa-y-borrosa.webp" id="1_1buso"]
 [ext_resource type="Script" uid="uid://dlb8fbxka6fnd" path="res://Scenes/caffeteria_level.gd" id="1_jmqqm"]
 [ext_resource type="Texture2D" uid="uid://dca41pslvu35c" path="res://Assets/vecteezy_close-up-hand-holding-holding-black-mobile-phone-with-blank_47598452.png" id="2_fngo7"]
+[ext_resource type="AudioStream" uid="uid://bcnrcj81nntwa" path="res://Music/Double Click Mouse Sfx.wav" id="4_q6qvt"]
+[ext_resource type="AudioStream" uid="uid://y3xopdqsxi6c" path="res://Music/Win sound.wav" id="5_0pbvd"]
+[ext_resource type="AudioStream" uid="uid://d4hghnooplsxh" path="res://Music/error.ogg" id="6_wwpe8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fngo7"]
 font_size = 28
@@ -199,6 +202,15 @@ label_settings = SubResource("LabelSettings_jmqqm")
 
 [node name="Close_Good" type="Button" parent="GoodAnswer" unique_id=1852173745]
 layout_mode = 2
+
+[node name="SfxClick" type="AudioStreamPlayer" parent="." unique_id=293804494]
+stream = ExtResource("4_q6qvt")
+
+[node name="SfxSuccess" type="AudioStreamPlayer" parent="." unique_id=136518561]
+stream = ExtResource("5_0pbvd")
+
+[node name="SfxError" type="AudioStreamPlayer" parent="." unique_id=1589352802]
+stream = ExtResource("6_wwpe8")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
