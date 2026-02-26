@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://csyfac6j78ehj"]
 
 [ext_resource type="Texture2D" uid="uid://b06cx1g40h3cj" path="res://Assets/caffee-en-café-mesa-y-borrosa.webp" id="1_1buso"]
+[ext_resource type="Script" uid="uid://dlb8fbxka6fnd" path="res://Scenes/caffeteria_level.gd" id="1_jmqqm"]
 [ext_resource type="Texture2D" uid="uid://dca41pslvu35c" path="res://Assets/vecteezy_close-up-hand-holding-holding-black-mobile-phone-with-blank_47598452.png" id="2_fngo7"]
-[ext_resource type="Texture2D" uid="uid://61vjnmj8ugb" path="res://Assets/210049957_10991317.png" id="3_lpr5h"]
-[ext_resource type="Texture2D" uid="uid://btuo4jmn5u54w" path="res://Assets/10990927.png" id="4_jmqqm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fngo7"]
 font_size = 28
@@ -16,12 +15,22 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_lpr5h"]
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_q6qvt"]
-font_size = 159
-font_color = Color(0, 1, 0, 1)
+[sub_resource type="Theme" id="Theme_a2phn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpr5h"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jmqqm"]
 font_size = 34
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2phn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmqqm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6qvt"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="CaffeteriaLevel" type="Control" unique_id=911281019]
 layout_mode = 3
@@ -30,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jmqqm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=436027542]
 z_index = -1
@@ -81,122 +91,104 @@ label_settings = SubResource("LabelSettings_lpr5h")
 [node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1659969705]
 layout_mode = 2
 
-[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1628526792]
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=32603300]
 layout_mode = 2
-size_flags_horizontal = 0
-text = "Coffee_Wifi_Free               "
+text = "Coffee_Wifi_Free     "
 
-[node name="CheckButton2" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=571652520]
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1205047923]
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Samsung flip7 🔒               "
 
-[node name="CheckButton3" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=618911877]
+[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=212333457]
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Jhon Phone 4 🔒                 "
 
-[node name="CheckButton4" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=945262809]
+[node name="Button4" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=550007169]
 layout_mode = 2
-size_flags_horizontal = 0
-text = "WorkersOnly 🔒                 "
+text = "WorkersOnly 🔒      "
 
-[node name="CheckButton5" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=946725801]
+[node name="Button5" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=944848438]
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Totaly_Not_A_Scammer   "
 
-[node name="PopUp" type="PanelContainer" parent="." unique_id=1777411093]
-z_index = 2
-layout_mode = 0
-offset_left = 154.0
-offset_top = 124.0
-offset_right = 4158.0
-offset_bottom = 2124.0
-scale = Vector2(0.22063632, 0.22519568)
-
-[node name="Label" type="Label" parent="PopUp" unique_id=607953978]
+[node name="Button6" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1278695909]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Are you sure you want to connect to this network?"
-label_settings = SubResource("LabelSettings_q6qvt")
+text = "Dont Connect to any network"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PopUp" unique_id=408606703]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="PopUp/HBoxContainer" unique_id=24789643]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="PopUp/HBoxContainer/PanelContainer" unique_id=581667033]
-layout_mode = 2
-texture_normal = ExtResource("3_lpr5h")
-texture_pressed = ExtResource("3_lpr5h")
-texture_hover = ExtResource("3_lpr5h")
-
-[node name="PanelContainer2" type="PanelContainer" parent="PopUp/HBoxContainer" unique_id=1435272670]
-layout_mode = 2
-
-[node name="TextureButton2" type="TextureButton" parent="PopUp/HBoxContainer/PanelContainer2" unique_id=1054408840]
-layout_mode = 2
-texture_normal = ExtResource("4_jmqqm")
-texture_pressed = ExtResource("4_jmqqm")
-texture_hover = ExtResource("4_jmqqm")
-
-[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=773652890]
+[node name="FirstPopup" type="PanelContainer" parent="." unique_id=773652890]
 z_index = 3
 layout_mode = 0
-offset_left = 138.0
-offset_top = 178.0
-offset_right = 1008.0
-offset_bottom = 375.0
+offset_left = 181.0
+offset_top = 120.0
+offset_right = 1051.0
+offset_bottom = 367.0
+theme = SubResource("Theme_a2phn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lpr5h")
 
-[node name="Label" type="Label" parent="PanelContainer2" unique_id=1818782437]
+[node name="Label" type="Label" parent="FirstPopup" unique_id=1818782437]
 layout_mode = 2
 text = "You want to check your bank account in your phone 
 but you spended all your data plan already
  so you need to conect to the wifi in order to do that. 
-What will you choose? "
+What will you choose? 
+"
 label_settings = SubResource("LabelSettings_jmqqm")
 
-[node name="PanelContainer3" type="PanelContainer" parent="." unique_id=290363313]
+[node name="Button_Okey" type="Button" parent="FirstPopup" unique_id=1762764139]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Continue"
+
+[node name="Password" type="PanelContainer" parent="." unique_id=290363313]
+visible = false
 z_index = 3
 layout_mode = 0
-offset_left = 138.0
-offset_top = 178.0
-offset_right = 1008.0
-offset_bottom = 375.0
+offset_left = 172.0
+offset_top = 183.0
+offset_right = 1042.0
+offset_bottom = 380.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a2phn")
 
-[node name="Label" type="Label" parent="PanelContainer3" unique_id=1724040105]
+[node name="Label" type="Label" parent="Password" unique_id=1724040105]
 layout_mode = 2
 text = "You dont have the password required 
 to connect to that network"
 label_settings = SubResource("LabelSettings_jmqqm")
 
-[node name="PanelContainer4" type="PanelContainer" parent="." unique_id=1715795991]
+[node name="Close" type="Button" parent="Password" unique_id=1779893475]
+layout_mode = 2
+
+[node name="BadAnswer" type="PanelContainer" parent="." unique_id=1715795991]
+visible = false
 z_index = 3
 layout_mode = 0
-offset_left = 138.0
-offset_top = 178.0
-offset_right = 1008.0
-offset_bottom = 375.0
+offset_left = 156.0
+offset_top = 180.0
+offset_right = 1026.0
+offset_bottom = 377.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jmqqm")
 
-[node name="Label" type="Label" parent="PanelContainer4" unique_id=1957493540]
+[node name="Label" type="Label" parent="BadAnswer" unique_id=1957493540]
 layout_mode = 2
 text = "Wrong!
 your data will be in danger if you use a public wifi. 
 Anyone can enter and steal your data."
 label_settings = SubResource("LabelSettings_jmqqm")
 
-[node name="PanelContainer5" type="PanelContainer" parent="." unique_id=797911859]
+[node name="Close_Bad" type="Button" parent="BadAnswer" unique_id=145227454]
+layout_mode = 2
+
+[node name="GoodAnswer" type="PanelContainer" parent="." unique_id=797911859]
+visible = false
 z_index = 3
 layout_mode = 0
-offset_left = 138.0
-offset_top = 178.0
-offset_right = 1008.0
-offset_bottom = 375.0
+offset_left = 142.0
+offset_top = 193.0
+offset_right = 1099.0
+offset_bottom = 440.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q6qvt")
 
-[node name="Label" type="Label" parent="PanelContainer5" unique_id=1420063946]
+[node name="Label" type="Label" parent="GoodAnswer" unique_id=1420063946]
 layout_mode = 2
 text = "Good Choice!
 This is really the best option in this specific situaton.
@@ -204,3 +196,17 @@ If you want to log in something important or confident, try
 to use a secure network if posible, if dont, abstend to do it
 and try later in your home."
 label_settings = SubResource("LabelSettings_jmqqm")
+
+[node name="Close_Good" type="Button" parent="GoodAnswer" unique_id=1852173745]
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="FirstPopup/Button_Okey" to="." method="_on_button_okey_pressed"]
+[connection signal="pressed" from="Password/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="BadAnswer/Close_Bad" to="." method="_on_close_bad_pressed"]
+[connection signal="pressed" from="GoodAnswer/Close_Good" to="." method="_on_close_good_pressed"]
