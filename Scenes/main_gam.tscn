@@ -293,6 +293,7 @@ oversampling_override = 1.0
 position = Vector2i(0, 36)
 size = Vector2i(400, 400)
 visible = false
+theme_override_colors/title_color = Color(0, 0, 0.8, 1)
 
 [node name="ManualText" type="RichTextLabel" parent="ManualPopup" unique_id=802224894]
 anchors_preset = 15

@@ -1,6 +1,6 @@
 extends Control
 
-@export var next_scene_path: String = "res://Scenes/menu.tscn"
+@export var next_scene_path: String = "res://Scenes/caffeteria_level.tscn"
 
 # UI NODES 
 @onready var score_label = $Header/ScoreLabel
@@ -13,7 +13,7 @@ extends Control
 @onready var feedback_popup = $FeedbackPopup
 @onready var manual_popup = $ManualPopup
 
-# NODOS Sound
+# NODES Sound
 @onready var sfx_click = $SfxClick
 @onready var sfx_success = $SfxSuccess
 @onready var sfx_error = $SfxError
@@ -107,22 +107,34 @@ func _on_submit_pressed():
 	if chk_permissions.button_pressed: player_selection.append("permissions")
 	if chk_safe.button_pressed: player_selection.append("safe")
 	
+	var correct_hits = 0
+	for threat in player_selection:
+		if threat in correct_threats:
+			correct_hits += 1
+			
 	player_selection.sort()
 	correct_threats.sort()
 	
 	if player_selection == correct_threats:
 		score += 5
-		sfx_success.play() 
-		show_feedback("CORRECT!", "You identified all risks.\n\n" + current_data["explanation"], true)
+		sfx_success.play()
+		show_feedback("¡PERFECT!", "You have found all the threats. (+5 puntos)\n\n" + current_data["explanation"], true)
+	
+	elif correct_hits > 0:
+		score += correct_hits
+		sfx_success.play()
+		show_feedback("WELL DONE", "You're right. " + str(correct_hits) + " threat(s). (+" + str(correct_hits) + " points)\n\n" + current_data["explanation"], true)
+	
 	else:
 		score -= 2
-		sfx_error.play() 
-		show_feedback("INCORRECT", "You missed something or marked a wrong threat.\n\n" + current_data["explanation"], true)
+		sfx_error.play()
+		show_feedback("INCORRECT", "You haven't identified any real threats. (-2 puntos)\n\n" + current_data["explanation"], true)
 	
+	# Ui update
 	score_label.text = "Score: " + str(score)
 
 func _on_fake_popup_clicked():
-	score -= 10
+	score -= 5
 	sfx_error.play()
 	score_label.text = "Score: " + str(score)
 	fake_popup_visual.visible = false
@@ -139,7 +151,7 @@ func show_feedback(title: String, message: String, move_to_next: bool):
 	if move_to_next:
 		feedback_popup.confirmed.connect(next_level)
 
-# Change scne or restart
+# Change scene or restart
 
 func next_level():
 	current_level += 1
