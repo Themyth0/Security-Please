@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bmnrvtcwmf6oc" path="res://Script/main_game.gd" id="1_l756w"]
 [ext_resource type="Texture2D" uid="uid://b42c7octxc7g2" path="res://Assets/vecteezy_digital-device-clipart-design-illustration_9394185.png" id="2_pu3va"]
+[ext_resource type="FontFile" uid="uid://bshqldc15nqji" path="res://Fonts/Fonts/Lexend-Regular.ttf" id="3_18r40"]
 [ext_resource type="AudioStream" uid="uid://bcnrcj81nntwa" path="res://Music/Double Click Mouse Sfx.wav" id="3_mgc0q"]
+[ext_resource type="FontFile" uid="uid://1tnyjkqg1pxk" path="res://Fonts/Fonts/Kenney Future Narrow.ttf" id="4_6y7pd"]
 [ext_resource type="AudioStream" uid="uid://y3xopdqsxi6c" path="res://Music/Win sound.wav" id="4_bb2iq"]
 [ext_resource type="AudioStream" uid="uid://d4hghnooplsxh" path="res://Music/error.ogg" id="5_18r40"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l756w"]
-bg_color = Color(0, 0.28627452, 0.39215687, 1)
+bg_color = Color(0.13333334, 0.33333334, 0.46666667, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -28,7 +30,21 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgc0q"]
+bg_color = Color(0.13333334, 0.33333334, 0.46666667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73nn6"]
 bg_color = Color(0, 0.28627452, 0.39215687, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0mdn"]
+bg_color = Color(0.15060425, 0.34007722, 0.41015625, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -60,7 +76,7 @@ offset_bottom = -39.656494
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9679113, 0.99230343)
-color = Color(1.4439225e-06, 0.28489935, 0.3925011, 1)
+color = Color(0.14117648, 0.21176471, 0.30980393, 1)
 
 [node name="MainLayout" type="HSplitContainer" parent="." unique_id=1313082259]
 layout_mode = 1
@@ -92,6 +108,8 @@ layout_mode = 2
 [node name="Logo" type="Label" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=618272092]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.21568628, 0, 1)
+theme_override_fonts/font = ExtResource("3_18r40")
+theme_override_font_sizes/font_size = 19
 text = "G-Mail Detective"
 
 [node name="Separator" type="HSeparator" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=745691643]
@@ -99,6 +117,8 @@ layout_mode = 2
 
 [node name="LabelPoints" type="Label" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=2019292868]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_18r40")
+theme_override_font_sizes/font_size = 18
 text = "Points: 0"
 
 [node name="Spacer" type="Control" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=1506732729]
@@ -114,12 +134,17 @@ text = "Open Guide"
 
 [node name="Content" type="VBoxContainer" parent="MainLayout" unique_id=336255982]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Header" type="PanelContainer" parent="MainLayout/Content" unique_id=1452783265]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="MailSubject" type="Label" parent="MainLayout/Content/Header" unique_id=876044535]
 layout_mode = 2
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("3_18r40")
+theme_override_font_sizes/font_size = 20
 text = "Select an Email..."
 
 [node name="EmailView" type="PanelContainer" parent="MainLayout/Content" unique_id=399733677]
@@ -156,6 +181,7 @@ layout_mode = 2
 
 [node name="HBoxActions" type="HBoxContainer" parent="MainLayout/Content/ActionsFooter" unique_id=1488361519]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="GridChecks" type="GridContainer" parent="MainLayout/Content/ActionsFooter/HBoxActions" unique_id=93690250]
 layout_mode = 2
@@ -163,29 +189,38 @@ columns = 2
 
 [node name="CheckSender" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions/GridChecks" unique_id=488091283]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_18r40")
 text = "Suspicious sender"
 
 [node name="CheckTone" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions/GridChecks" unique_id=932730444]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_18r40")
 text = "Urgency/Threat"
 
 [node name="CheckURL" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions/GridChecks" unique_id=1840023041]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_18r40")
 text = "Fake link"
 
 [node name="CheckAttachment" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions/GridChecks" unique_id=1017165514]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_18r40")
 text = "Strange file"
 
 [node name="CheckIsSafe" type="CheckBox" parent="MainLayout/Content/ActionsFooter/HBoxActions" unique_id=1432957173]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_18r40")
 text = "✅ IT'S SAFE"
 
 [node name="BtnValidate" type="Button" parent="MainLayout/Content/ActionsFooter/HBoxActions" unique_id=1633500226]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_6y7pd")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgc0q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_73nn6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r0mdn")
 text = "Send"
 
 [node name="FeedbackPopUp" type="AcceptDialog" parent="." unique_id=105388703]

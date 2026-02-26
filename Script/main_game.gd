@@ -155,6 +155,8 @@ func evaluate_final_score():
 func _on_btn_manual_pressed():
 	manual_popupE.show()
 
+func _on_btn_close_manuale_pressed():
+	manual_popupE.hide()
 
 func _on_email_body_meta_hover_started(meta):
 	label_url_tip.text = "🔗 REAL URL: " + str(meta)
