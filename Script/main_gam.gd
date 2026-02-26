@@ -170,8 +170,7 @@ func _on_safe_toggled(is_pressed):
 		for box in threats:
 			box.button_pressed = false
 			
-func _on_btn_close_manual_pressed() -> void:
-	manual_popup.hide()
+
 
 
 func _input(event):
@@ -179,3 +178,7 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if sfx_click:
 				sfx_click.play()
+
+
+func _on_manual_popup_close_requested() -> void:
+	manual_popup.hide()

@@ -24,7 +24,7 @@
 ___
 <h3>2. 📖 Description</h3>
 
-<p>Point and click type of game in which you will have to go on different situations in order to maintain your privacy and security safe from pirates, hackers and scammers.</p>
+<p>Point-and-click game in which you will have to face different situations to keep your privacy and security safe from hackers and scammers. To do so, you must obtain a score of at least 15 points to pass the level..</p>
 
 ___
 <h3>3. 🕹️ Game elements</h3>
@@ -38,7 +38,7 @@ ___
 <h4>4.1 🎧 Audio</h4>
 
 * **Music:** Background music for the level.
-* **Sound effects**
+* **Sound effects** Clicking and failed or successful response effects
 ___
 <h4>4.2 🏗️ Levels designed</h4>
 

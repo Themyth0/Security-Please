@@ -345,4 +345,4 @@ stream = ExtResource("4_m7qrc")
 [connection signal="toggled" from="InvestigationPanel/CheckboxContainer/Chk_Safe" to="." method="_on_safe_toggled"]
 [connection signal="pressed" from="InvestigationPanel/SubmitButton" to="." method="_on_submit_pressed"]
 [connection signal="confirmed" from="FeedbackPopup" to="." method="next_level"]
-[connection signal="pressed" from="BtnCloseManual" to="." method="_on_btn_close_manual_pressed"]
+[connection signal="close_requested" from="ManualPopup" to="." method="_on_manual_popup_close_requested"]

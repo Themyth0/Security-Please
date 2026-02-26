@@ -34,27 +34,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb2iq"]
-bg_color = Color(0, 0.28627452, 0.39215687, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73nn6"]
-bg_color = Color(0, 0.28627452, 0.39215687, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0mdn"]
-bg_color = Color(0.1303711, 0.3089502, 0.375, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [node name="MainGame" type="Control" unique_id=551711078]
 layout_mode = 3
 anchors_preset = 15
@@ -265,21 +244,9 @@ stream = ExtResource("4_bb2iq")
 [node name="SfxError" type="AudioStreamPlayer" parent="." unique_id=1814661528]
 stream = ExtResource("5_18r40")
 
-[node name="BtnCloseManuale" type="Button" parent="." unique_id=1744598255]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_left = 973.0
-offset_top = 549.0
-offset_right = 1103.0
-offset_bottom = 603.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_bb2iq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_73nn6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_r0mdn")
-text = "Close Guide"
-
 [connection signal="pressed" from="MainLayout/Sidebar/MarginSidebar/VBoxSidebar/BtnManual" to="." method="_on_btn_manual_pressed"]
 [connection signal="meta_hover_ended" from="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody" to="." method="_on_email_body_meta_hover_ended"]
 [connection signal="meta_hover_started" from="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody" to="." method="_on_email_body_meta_hover_started"]
 [connection signal="pressed" from="MainLayout/Content/ActionsFooter/HBoxActions/BtnValidate" to="." method="_on_btn_validate_pressed"]
 [connection signal="confirmed" from="FeedbackPopUp" to="." method="_on_feedback_pop_up_confirmed"]
-[connection signal="pressed" from="BtnCloseManuale" to="." method="_on_btn_close_manuale_pressed"]
+[connection signal="close_requested" from="ManualPopupE" to="." method="_on_manual_popup_e_close_requested"]
