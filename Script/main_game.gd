@@ -170,3 +170,7 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if sfx_click:
 				sfx_click.play()
+
+
+func _on_manual_popup_e_close_requested() -> void:
+	manual_popupE.hide()
