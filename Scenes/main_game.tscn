@@ -13,6 +13,48 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18r40"]
+bg_color = Color(0, 0.28627452, 0.39215687, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6y7pd"]
+bg_color = Color(0.117492676, 0.31687927, 0.390625, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgc0q"]
+bg_color = Color(0, 0.28627452, 0.39215687, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb2iq"]
+bg_color = Color(0, 0.28627452, 0.39215687, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73nn6"]
+bg_color = Color(0, 0.28627452, 0.39215687, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0mdn"]
+bg_color = Color(0.1303711, 0.3089502, 0.375, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="MainGame" type="Control" unique_id=551711078]
 layout_mode = 3
 anchors_preset = 15
@@ -87,6 +129,8 @@ size_flags_vertical = 3
 [node name="BtnManual" type="Button" parent="MainLayout/Sidebar/MarginSidebar/VBoxSidebar" unique_id=1033899807]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_l756w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_18r40")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6y7pd")
 text = "Open Guide"
 
 [node name="Content" type="VBoxContainer" parent="MainLayout" unique_id=336255982]
@@ -159,10 +203,14 @@ layout_mode = 2
 text = "✅ IT'S SAFE"
 
 [node name="BtnValidate" type="Button" parent="MainLayout/Content/ActionsFooter/HBoxActions" unique_id=1633500226]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgc0q")
 text = "Send"
 
 [node name="FeedbackPopUp" type="AcceptDialog" parent="." unique_id=105388703]
+oversampling_override = 1.0
 
 [node name="ManualPopupE" type="Window" parent="." unique_id=407204680]
 oversampling_override = 1.0
@@ -218,11 +266,15 @@ stream = ExtResource("4_bb2iq")
 stream = ExtResource("5_18r40")
 
 [node name="BtnCloseManuale" type="Button" parent="." unique_id=1744598255]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_left = 973.0
 offset_top = 549.0
 offset_right = 1103.0
 offset_bottom = 603.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bb2iq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_73nn6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r0mdn")
 text = "Close Guide"
 
 [connection signal="pressed" from="MainLayout/Sidebar/MarginSidebar/VBoxSidebar/BtnManual" to="." method="_on_btn_manual_pressed"]
