@@ -3,7 +3,6 @@ extends Control
 @onready var v_box_container: VBoxContainer = $VBoxContainer
 @onready var options: Panel = $Options
 
-
 func _ready() -> void:
 	v_box_container.visible = true
 	options.visible = false

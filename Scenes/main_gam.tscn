@@ -208,10 +208,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -312.0
+offset_left = -369.0
 offset_top = 120.0
 offset_right = -45.0
-offset_bottom = 27.0
+offset_bottom = -17.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -287,13 +287,6 @@ text = "Send"
 [node name="FeedbackPopup" type="AcceptDialog" parent="." unique_id=975523799]
 oversampling_override = 1.0
 position = Vector2i(0, 36)
-
-[node name="BtnCloseManual" type="Button" parent="." unique_id=1086526426]
-layout_mode = 0
-offset_top = 617.0
-offset_right = 112.0
-offset_bottom = 648.0
-text = "Close Manual"
 
 [node name="ManualPopup" type="Window" parent="." unique_id=77942657]
 oversampling_override = 1.0
