@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://djbb1lsuhllbk"]
 
 [ext_resource type="Script" uid="uid://bmnrvtcwmf6oc" path="res://Script/main_game.gd" id="1_l756w"]
+[ext_resource type="Texture2D" uid="uid://b42c7octxc7g2" path="res://Assets/vecteezy_digital-device-clipart-design-illustration_9394185.png" id="2_pu3va"]
+[ext_resource type="AudioStream" uid="uid://bcnrcj81nntwa" path="res://Music/Double Click Mouse Sfx.wav" id="3_mgc0q"]
+[ext_resource type="AudioStream" uid="uid://y3xopdqsxi6c" path="res://Music/Win sound.wav" id="4_bb2iq"]
+[ext_resource type="AudioStream" uid="uid://d4hghnooplsxh" path="res://Music/error.ogg" id="5_18r40"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l756w"]
 bg_color = Color(0, 0.28627452, 0.39215687, 1)
@@ -18,13 +22,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l756w")
 
+[node name="Monitor" type="Sprite2D" parent="." unique_id=982041786]
+position = Vector2(574.6254, 437)
+scale = Vector2(0.17785244, 0.16326885)
+texture = ExtResource("2_pu3va")
+
 [node name="Background" type="ColorRect" parent="." unique_id=909850]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 46.000004
+offset_top = 44.0
+offset_right = -10.858276
+offset_bottom = -39.656494
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9679113, 0.99230343)
 color = Color(1.4439225e-06, 0.28489935, 0.3925011, 1)
 
 [node name="MainLayout" type="HSplitContainer" parent="." unique_id=1313082259]
@@ -32,8 +46,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 49.0
+offset_top = 44.99997
+offset_right = 68.79541
+offset_bottom = 18.339478
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.90288806, 0.90288806)
 
 [node name="Sidebar" type="PanelContainer" parent="MainLayout" unique_id=912424475]
 custom_minimum_size = Vector2(200, 200)
@@ -189,8 +208,26 @@ Use MFA (Multi-Factor Authentication): This is the most important step. It sends
 
 Unique Passwords: Never use the same password for your email that you use for social media or games."
 
+[node name="SfxClick" type="AudioStreamPlayer" parent="." unique_id=1107122748]
+stream = ExtResource("3_mgc0q")
+
+[node name="SfxSuccess" type="AudioStreamPlayer" parent="." unique_id=1013132696]
+stream = ExtResource("4_bb2iq")
+
+[node name="SfxError" type="AudioStreamPlayer" parent="." unique_id=1814661528]
+stream = ExtResource("5_18r40")
+
+[node name="BtnCloseManuale" type="Button" parent="." unique_id=1744598255]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 549.0
+offset_right = 1103.0
+offset_bottom = 603.0
+text = "Close Guide"
+
 [connection signal="pressed" from="MainLayout/Sidebar/MarginSidebar/VBoxSidebar/BtnManual" to="." method="_on_btn_manual_pressed"]
 [connection signal="meta_hover_ended" from="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody" to="." method="_on_email_body_meta_hover_ended"]
 [connection signal="meta_hover_started" from="MainLayout/Content/EmailView/MarginEmail/ScrollContainer/VBoxEmail/EmailBody" to="." method="_on_email_body_meta_hover_started"]
 [connection signal="pressed" from="MainLayout/Content/ActionsFooter/HBoxActions/BtnValidate" to="." method="_on_btn_validate_pressed"]
 [connection signal="confirmed" from="FeedbackPopUp" to="." method="_on_feedback_pop_up_confirmed"]
+[connection signal="pressed" from="BtnCloseManuale" to="." method="_on_btn_close_manuale_pressed"]

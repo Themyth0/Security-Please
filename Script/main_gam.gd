@@ -1,5 +1,7 @@
 extends Control
 
+@export var next_scene_path: String = "res://Scenes/menu.tscn"
+
 # UI NODES 
 @onready var score_label = $Header/ScoreLabel
 @onready var manual_button = $Header/ManualButton
@@ -10,6 +12,11 @@ extends Control
 @onready var submit_button = $InvestigationPanel/SubmitButton
 @onready var feedback_popup = $FeedbackPopup
 @onready var manual_popup = $ManualPopup
+
+# NODOS Sound
+@onready var sfx_click = $SfxClick
+@onready var sfx_success = $SfxSuccess
+@onready var sfx_error = $SfxError
 
 # CHECKBOXES 
 @onready var chk_url = $InvestigationPanel/CheckboxContainer/Chk_SuspiciousURL
@@ -91,8 +98,6 @@ func _on_submit_pressed():
 	var current_data = websites[current_level]
 	var correct_threats = current_data["threats"]
 	var player_selection = []
-	
-	# Collect player input
 	if chk_url.button_pressed: player_selection.append("url")
 	if chk_http.button_pressed: player_selection.append("http")
 	if chk_tone.button_pressed: player_selection.append("tone")
@@ -107,15 +112,18 @@ func _on_submit_pressed():
 	
 	if player_selection == correct_threats:
 		score += 5
+		sfx_success.play() 
 		show_feedback("CORRECT!", "You identified all risks.\n\n" + current_data["explanation"], true)
 	else:
 		score -= 2
+		sfx_error.play() 
 		show_feedback("INCORRECT", "You missed something or marked a wrong threat.\n\n" + current_data["explanation"], true)
 	
 	score_label.text = "Score: " + str(score)
 
 func _on_fake_popup_clicked():
 	score -= 10
+	sfx_error.play()
 	score_label.text = "Score: " + str(score)
 	fake_popup_visual.visible = false
 	show_feedback("SECURITY WARNING", "DANGER! You interacted with a malicious pop-up. Cybercriminals use these to steal data. NEVER click them!", false)
@@ -124,20 +132,34 @@ func show_feedback(title: String, message: String, move_to_next: bool):
 	feedback_popup.title = title
 	feedback_popup.dialog_text = message
 	feedback_popup.popup_centered()
+	
 	if feedback_popup.confirmed.is_connected(next_level):
 		feedback_popup.confirmed.disconnect(next_level)
 	
 	if move_to_next:
 		feedback_popup.confirmed.connect(next_level)
 
+# Change scne or restart
+
 func next_level():
 	current_level += 1
 	if current_level < websites.size():
 		load_website(current_level)
 	else:
-		url_bar.text = "Training Finished"
-		web_content.text = "[center][b]GAME OVER[/b]\nFinal Score: " + str(score) + "[/center]"
-		submit_button.disabled = true
+		evaluate_final_result()
+
+func evaluate_final_result():
+	if score >= 15:
+		print("Victory! Moving on to the next scene.")
+		if ResourceLoader.exists(next_scene_path):
+			get_tree().change_scene_to_file(next_scene_path)
+		else:
+			push_error("Scene not found: " + next_scene_path)
+	else:
+		print("Insufficient points (", score, "). Restarting level...")
+		get_tree().reload_current_scene()
+
+# Buttons signals
 
 func _on_manual_button_pressed():
 	manual_popup.popup_centered()
@@ -147,3 +169,13 @@ func _on_safe_toggled(is_pressed):
 		var threats = [chk_url, chk_http, chk_tone, chk_design, chk_popups, chk_hidden, chk_permissions]
 		for box in threats:
 			box.button_pressed = false
+			
+func _on_btn_close_manual_pressed() -> void:
+	manual_popup.hide()
+
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if sfx_click:
+				sfx_click.play()

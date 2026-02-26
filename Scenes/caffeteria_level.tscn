@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://csyfac6j78ehj"]
+
+[ext_resource type="Texture2D" uid="uid://b06cx1g40h3cj" path="res://Assets/caffee-en-café-mesa-y-borrosa.webp" id="1_1buso"]
+[ext_resource type="Texture2D" uid="uid://dca41pslvu35c" path="res://Assets/vecteezy_close-up-hand-holding-holding-black-mobile-phone-with-blank_47598452.png" id="2_fngo7"]
+[ext_resource type="Texture2D" uid="uid://61vjnmj8ugb" path="res://Assets/210049957_10991317.png" id="3_lpr5h"]
+[ext_resource type="Texture2D" uid="uid://btuo4jmn5u54w" path="res://Assets/10990927.png" id="4_jmqqm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fngo7"]
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2phn"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lpr5h"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q6qvt"]
+font_size = 159
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jmqqm"]
+font_size = 34
+
+[node name="CaffeteriaLevel" type="Control" unique_id=911281019]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=436027542]
+z_index = -1
+position = Vector2(576.00006, 324)
+scale = Vector2(1.8815362, 1.5857843)
+texture = ExtResource("1_1buso")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=242525191]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 36.0
+offset_right = 709.0
+offset_bottom = 593.0
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer" unique_id=2104197489]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="PanelContainer" unique_id=134229420]
+z_index = 2
+position = Vector2(167.00056, 286.03287)
+scale = Vector2(0.24241967, 0.24373986)
+texture = ExtResource("2_fngo7")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1277429816]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 19
+theme_override_constants/margin_bottom = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1195111783]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1110718739]
+layout_mode = 2
+text = "Options:"
+label_settings = SubResource("LabelSettings_fngo7")
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1084229828]
+layout_mode = 2
+text = "Wifi and connections"
+label_settings = SubResource("LabelSettings_a2phn")
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=278229578]
+layout_mode = 2
+text = "WIFI networks available:"
+label_settings = SubResource("LabelSettings_lpr5h")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1659969705]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1628526792]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Coffee_Wifi_Free               "
+
+[node name="CheckButton2" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=571652520]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Samsung flip7 🔒               "
+
+[node name="CheckButton3" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=618911877]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Jhon Phone 4 🔒                 "
+
+[node name="CheckButton4" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=945262809]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "WorkersOnly 🔒                 "
+
+[node name="CheckButton5" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=946725801]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Totaly_Not_A_Scammer   "
+
+[node name="PopUp" type="PanelContainer" parent="." unique_id=1777411093]
+z_index = 2
+layout_mode = 0
+offset_left = 154.0
+offset_top = 124.0
+offset_right = 4158.0
+offset_bottom = 2124.0
+scale = Vector2(0.22063632, 0.22519568)
+
+[node name="Label" type="Label" parent="PopUp" unique_id=607953978]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Are you sure you want to connect to this network?"
+label_settings = SubResource("LabelSettings_q6qvt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopUp" unique_id=408606703]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PopUp/HBoxContainer" unique_id=24789643]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PopUp/HBoxContainer/PanelContainer" unique_id=581667033]
+layout_mode = 2
+texture_normal = ExtResource("3_lpr5h")
+texture_pressed = ExtResource("3_lpr5h")
+texture_hover = ExtResource("3_lpr5h")
+
+[node name="PanelContainer2" type="PanelContainer" parent="PopUp/HBoxContainer" unique_id=1435272670]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="PopUp/HBoxContainer/PanelContainer2" unique_id=1054408840]
+layout_mode = 2
+texture_normal = ExtResource("4_jmqqm")
+texture_pressed = ExtResource("4_jmqqm")
+texture_hover = ExtResource("4_jmqqm")
+
+[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=773652890]
+z_index = 3
+layout_mode = 0
+offset_left = 138.0
+offset_top = 178.0
+offset_right = 1008.0
+offset_bottom = 375.0
+
+[node name="Label" type="Label" parent="PanelContainer2" unique_id=1818782437]
+layout_mode = 2
+text = "You want to check your bank account in your phone 
+but you spended all your data plan already
+ so you need to conect to the wifi in order to do that. 
+What will you choose? "
+label_settings = SubResource("LabelSettings_jmqqm")
+
+[node name="PanelContainer3" type="PanelContainer" parent="." unique_id=290363313]
+z_index = 3
+layout_mode = 0
+offset_left = 138.0
+offset_top = 178.0
+offset_right = 1008.0
+offset_bottom = 375.0
+
+[node name="Label" type="Label" parent="PanelContainer3" unique_id=1724040105]
+layout_mode = 2
+text = "You dont have the password required 
+to connect to that network"
+label_settings = SubResource("LabelSettings_jmqqm")
+
+[node name="PanelContainer4" type="PanelContainer" parent="." unique_id=1715795991]
+z_index = 3
+layout_mode = 0
+offset_left = 138.0
+offset_top = 178.0
+offset_right = 1008.0
+offset_bottom = 375.0
+
+[node name="Label" type="Label" parent="PanelContainer4" unique_id=1957493540]
+layout_mode = 2
+text = "Wrong!
+your data will be in danger if you use a public wifi. 
+Anyone can enter and steal your data."
+label_settings = SubResource("LabelSettings_jmqqm")
+
+[node name="PanelContainer5" type="PanelContainer" parent="." unique_id=797911859]
+z_index = 3
+layout_mode = 0
+offset_left = 138.0
+offset_top = 178.0
+offset_right = 1008.0
+offset_bottom = 375.0
+
+[node name="Label" type="Label" parent="PanelContainer5" unique_id=1420063946]
+layout_mode = 2
+text = "Good Choice!
+This is really the best option in this specific situaton.
+If you want to log in something important or confident, try
+to use a secure network if posible, if dont, abstend to do it
+and try later in your home."
+label_settings = SubResource("LabelSettings_jmqqm")
